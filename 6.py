@@ -9,10 +9,10 @@ with open('input/6') as file:
     input = [line.rstrip() for line in file]
 
 str = input[0]
-for i in range(len(str)-4):
-    curr = str[i:i+4]
+for i in range(len(str)-14):
+    curr = str[i:i+14]
     set_curr = set(curr)
     if len(curr) == len(set_curr):
-        print(i+4)
+        print(i+14)
         break
 
