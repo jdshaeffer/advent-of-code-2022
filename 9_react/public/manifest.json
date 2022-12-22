@@ -1,0 +1,8 @@
+{
+  "short_name": "aoc2022 day 9",
+  "name": "aoc2022 day 9 visualization",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
