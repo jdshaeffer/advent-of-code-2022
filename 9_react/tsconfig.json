@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../9_svelte/src/input.ts"  ]
 }

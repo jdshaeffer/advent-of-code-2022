@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { testInput, input } from './input';
+import { testInput, input } from '../../9_svelte/src/input';
 import "./App.css";
 
 function App() {
