@@ -1,21 +1,21 @@
 <script lang="ts">
   import { testInput, input } from '../input';
 
-  const rowLength = 300;
+  const rowLength = 600;
   const rowLengthArr = [...Array(rowLength)].map((t) => '.');
   let grid = rowLengthArr.map((row) => [...rowLengthArr]);
-  let i = 0;
-  let n = 0;
   let count = 0;
 
   // starting position
-  const startingPosition = [50, 50];
+  const startingPosition = [200, 200];
   let h = startingPosition;
   let t = startingPosition;
   let prevH = h;
   let prevT = t;
 
-  const intervalId = setInterval(() => {
+  let i = 0;
+  let n = 0;
+  while (i < input.length) {
     const [dir, num] = input[i].split(' ');
 
     grid[prevH[0]][prevH[1]] = grid[prevH[0]][prevH[1]] === 'H#' ? '#' : '.';
@@ -50,24 +50,20 @@
       t = prevH;
     }
 
-    ///////////////////////////////////////////////
-
     n++;
     if (n === +num) {
       n = 0;
       i++;
     }
-    if (i === input.length) {
-      clearInterval(intervalId);
-      for (const [i, _] of grid.entries()) {
-        for (const curr of grid[i]) {
-          if (curr.includes('#')) {
-            count++;
-          }
-        }
+  }
+  for (const [i, _] of grid.entries()) {
+    for (const curr of grid[i]) {
+      if (curr.includes('#')) {
+        count++;
       }
     }
-  }, 5);
+  }
+  console.log(count);
 </script>
 
 <main>
