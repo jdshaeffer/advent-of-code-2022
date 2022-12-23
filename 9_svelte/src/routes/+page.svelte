@@ -12,6 +12,8 @@
   let t = startingPosition;
   let prevH = h;
   let prevT = t;
+  let tailPositions = new Set();
+  tailPositions.add(`row: ${t[0]}, col: ${t[1]}`);
 
   let i = 0;
   let n = 0;
@@ -44,10 +46,12 @@
       (t[0] === h[0] && t[1] === h[1] - 1) || // e
       (t[0] === h[0] && t[1] === h[1] + 1) || // w
       (t[0] === h[0] + 1 && t[1] === h[1]) || // n
-      (t[0] === h[0] - 1 && t[1] === h[1]); // s
+      (t[0] === h[0] - 1 && t[1] === h[1]) || // s
+      (t[0] === h[0] && t[1] === h[1]); // on top
 
     if (!touching) {
       t = prevH;
+      tailPositions.add(`row: ${t[0]}, col: ${t[1]}`);
     }
 
     n++;
@@ -56,14 +60,7 @@
       i++;
     }
   }
-  for (const [i, _] of grid.entries()) {
-    for (const curr of grid[i]) {
-      if (curr.includes('#')) {
-        count++;
-      }
-    }
-  }
-  console.log(count);
+  console.log(tailPositions.size);
 </script>
 
 <main>
