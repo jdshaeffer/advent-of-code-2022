@@ -1,13 +1,14 @@
 <script lang="ts">
   import { testInput, input } from '../input';
 
-  const rowLength = 600;
+  let problemInput = testInput;
+  const rowLength = 6;
   const rowLengthArr = [...Array(rowLength)].map((t) => '.');
   let grid = rowLengthArr.map((row) => [...rowLengthArr]);
   let count = 0;
 
   // starting position
-  const startingPosition = [200, 200];
+  const startingPosition = [4, 0];
   let h = startingPosition;
   let t = startingPosition;
   let prevH = h;
@@ -17,8 +18,8 @@
 
   let i = 0;
   let n = 0;
-  while (i < input.length) {
-    const [dir, num] = input[i].split(' ');
+  while (i < problemInput.length) {
+    const [dir, num] = problemInput[i].split(' ');
 
     grid[prevH[0]][prevH[1]] = grid[prevH[0]][prevH[1]] === 'H#' ? '#' : '.';
     grid[prevT[0]][prevT[1]] = '#';
@@ -67,7 +68,7 @@
   <div class="app">
     {#each grid as _, i}
       <div class="row">
-        {#each grid[i] as col, j}
+        {#each grid[i] as col}
           <div class="t">
             {col}
           </div>
